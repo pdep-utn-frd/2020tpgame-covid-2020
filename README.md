@@ -6,8 +6,7 @@
 
 ### Resumen: 
 #### COVID RUNNER 2020
-#### La cuarentena empezó y nadie puede salir.
-¡Tenes un minuto para aprovechar y salir a entrenar!
+La cuarentena empezó y nadie puede salir. ¡Tenes un minuto para aprovechar y salir a entrenar!
 Nuestropersonaje va a la plaza, pero ¡atención! hay que evitar a la gente infectada con coronavirus,
 intentá conseguir el permiso, porque si te para la policia, sin él perdés y se extiende la cuarentena.
 No te olvides que el permiso expira a los 20 segundos, ¡así que tenes que renovarlo! 
