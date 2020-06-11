@@ -6,7 +6,7 @@
 
 ### Resumen: 
 
-#### COVID RUNNER 2020
+### COVID RUNNER 2020
 La cuarentena empezó y nadie puede salir. ¡Tenes un minuto para aprovechar y salir a entrenar!
 Nuestro personaje va a la plaza, pero ¡atención! hay que evitar a la gente infectada con coronavirus,
 intentá mantener el permiso, porque si te para la policia, sin él perdés y se extiende la cuarentena.
@@ -22,23 +22,26 @@ que puede extender la cuarentena si te atrapa sin permiso!
 
 Tu personaje es un runner que decide salir a entrenar en época de pandemia.
 
-####Controles: 
+### Controles: 
 
 W: Salto
+
 A: Moverse a la izquierda
+
 D: Moverse a la derecha
+
 S: Agacharse
 
-####Objetivo: 
+### Objetivo: 
 
 Conseguir la mayor de puntos disponible hasta que termine el nivel, o se termine el tiempo (en revisión) 
 
-####Obstaculos/Peligros:
+### Obstaculos/Peligros:
 
 Te encontrarás con policías que revisarán tu permiso, y además hay infectados de COVID, evitalos a toda costa porque sino te contagiarás.
 
 
-####Beneficios: 
+### Beneficios: 
 
 No todo es malo, en la plaza también hay comida, que te ayudará a recuperarte, y encontrarás los permisos necesarios para que la policía no te dentenga, pero mucho cuidado, ¡que se vencen! 
 
@@ -48,12 +51,17 @@ No todo es malo, en la plaza también hay comida, que te ayudará a recuperarte,
 COVID RUNNER 2020 es un juego de plataformas. 
 
 Autores: 
+<ul>
+  <li>Aimaretti, Luciano</li>
+  <li>Andrada, Carolina</li>
+  <li>Isola, Federico</li>
+  <li>Pagniez ,Mateo</li>
 
-Docente/Curso/Institución:
+Docente/Curso/Institución: Lucas Spigariol / Segundo año - Ingeniería en Sistemas / Universidad Tecnológica Nacional: Facultad Regional Delta
 
 Versión de wollok:
 
-Fecha:
+Fecha:11/06/2020
 
 [Guía de herramientas](https://www.wollok.org/documentacion/conceptos/)
 
