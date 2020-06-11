@@ -56,6 +56,7 @@ Autores:
   <li>Andrada, Carolina</li>
   <li>Isola, Federico</li>
   <li>Pagniez ,Mateo</li>
+</ul>
 
 Docente/Curso/Institución: Lucas Spigariol / Segundo año - Ingeniería en Sistemas / Universidad Tecnológica Nacional: Facultad Regional Delta
 
