@@ -13,7 +13,10 @@ No te olvides que el permiso expira a los 20 segundos, ¡así que tenes que reno
 Mientras más pasa el tiempo, más gente y policias hay, ¡SUERTE!
 
 ### Instrucciones:
-
+Con las teclas A,S,D y W te movés por la plaza. Tenes que sobrevivir un minuto en la plaza, pero a medida que pasa el tiempo
+vas perdiendo energía, recuperala comiendo! Sino vas a estar muy cansado para moverte. No te olvides que sin el permiso no
+podes salir, y cada 20 segundos tenes que renovarlo. Cuidadado con la gente infectada que te quita energía y con la policia
+que puede extender la cuarentena si te atrapa sin permiso!
 
 ### Acerca de:
 
