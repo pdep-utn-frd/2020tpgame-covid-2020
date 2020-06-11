@@ -7,9 +7,9 @@
 ### Resumen: COVID RUNNER 2020
 
 La cuarentena empezó y nadie puede salir.
-Por suerte  a partir de ahora, desde las 20 hs hasta las 8 am, podemos salir a correr!
-Nuestropersonaje aprovecha y va a la plaza, pero ¡atención! hay que evitar a la gente infectada con coronavirus,
-intentá conseguir el permiso, porque si te para la policia sin él perdés y se extiende la cuarentena
+Tenes un minuto para aprovechar y salir a correr!
+Nuestropersonaje va a la plaza, pero ¡atención! hay que evitar a la gente infectada con coronavirus,
+intentá conseguir el permiso, porque si te para la policia sin él perdés y se extiende la cuarentena. No te olvides que el permiso expira a los 20 segundos, así que tenes que renovarlo. 
 
 ### Instrucciones:
 
