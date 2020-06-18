@@ -48,8 +48,6 @@ No todo es malo, en la plaza también hay comida, que te ayudará a recuperarte,
 
 ### Acerca de:
 
-COVID RUNNER 2020 es un juego de plataformas. 
-
 Autores: 
 <ul>
   <li>Aimaretti, Luciano</li>
