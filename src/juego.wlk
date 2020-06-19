@@ -1,5 +1,5 @@
 import wollok.game.*
-import personajes.*
+import personaje.*
 
 object juego {
 	method inicio() {
