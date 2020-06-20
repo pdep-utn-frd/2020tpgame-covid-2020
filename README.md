@@ -13,38 +13,42 @@ intentá mantener el permiso, porque si te para la policia, sin él perdés y se
 No te olvides que el permiso expira a los 20 segundos, ¡así que tenes que renovarlo! 
 Mientras más pasa el tiempo, más gente y policias hay, ¡SUERTE!
 
-Con las teclas W,A,S,D te movés por la plaza. Tenes que sobrevivir un minuto en la plaza (en revisión), pero a medida que pasa el tiempo
-vas perdiendo energía, recuperala comiendo! Sino vas a estar muy cansado para moverte. No te olvides que sin el permiso no
-podes salir, y cada 20 segundos tenes que renovarlo. Cuidadado con la gente infectada que te quita energía y con la policia
-que puede extender la cuarentena si te atrapa sin permiso!
-
 ### Instrucciones:
 
 Tu personaje es un runner que decide salir a entrenar en época de pandemia.
 
 ### Controles: 
 
-W: Salto
+Flecha arriba: Moverse arriba
 
-A: Moverse a la izquierda
+Flecha izquierda: Moverse a la izquierda
 
-D: Moverse a la derecha
+Flecha derecha: Moverse a la derecha
 
-S: Agacharse
+Flecha abajo: Moverse abajo
 
 ### Objetivo: 
 
-Conseguir la mayor de puntos disponible hasta que termine el nivel, o se termine el tiempo (en revisión) 
+Conseguir la mayor cantidad de puntos en vida.
+
+### Mecánicas:  
+
+<ul> 
+  <li>El permiso: el permiso da inmunidad contra los policías durante 10 segundos.</li>
+  <li>Desinfectante: reduce los niveles de COVID en 20%</li>
+</ul> 
 
 ### Obstaculos/Peligros:
 
 Te encontrarás con policías que revisarán tu permiso, y además hay infectados de COVID, evitalos a toda costa porque sino te contagiarás.
 
-
 ### Beneficios: 
 
-No todo es malo, en la plaza también hay comida, que te ayudará a recuperarte, y encontrarás los permisos necesarios para que la policía no te dentenga, pero mucho cuidado, ¡que se vencen! 
+No todo es malo, en la plaza también hay comida, que te dará puntos, o desinfectante, que te ayudará a reducir tu nivel de COVID. Encontrarás los permisos necesarios para que la policía no te dentenga, pero mucho cuidado, ¡que se vencen!
 
+### Fin del juego: 
+
+El jugador pierde si la policía lo agarra sin permiso, o si su nivel de infección llega al 100 %.
 
 ### Acerca de:
 
@@ -56,9 +60,9 @@ Autores:
   <li>Pagniez ,Mateo</li>
 </ul>
 
-Docente/Curso/Institución: Lucas Spigariol / Segundo año - Ingeniería en Sistemas / Universidad Tecnológica Nacional: Facultad Regional Delta
+Lucas Spigariol / Segundo año - Ingeniería en Sistemas / Universidad Tecnológica Nacional: Facultad Regional Delta
 
-Versión de wollok:
+Versión de wollok: 1.9.2
 
 Fecha:11/06/2020
 
