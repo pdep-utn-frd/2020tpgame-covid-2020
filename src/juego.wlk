@@ -7,9 +7,10 @@ object juego {
 		game.width(31)
 		game.height(17)
 		game.ground("assets/escenario/pasto1.png")
+		
+		const personaje = new Personaje()
+		
 		game.addVisualCharacter(personaje)
 		game.start()
 	}
 }
-
-

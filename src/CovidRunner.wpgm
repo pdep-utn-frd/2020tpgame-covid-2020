@@ -1,0 +1,8 @@
+import wollok.game.*
+import personaje.*
+import nivel.*
+
+program juego {
+	nivel.inicio()
+	game.start()
+}
