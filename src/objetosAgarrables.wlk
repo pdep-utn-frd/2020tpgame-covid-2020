@@ -30,7 +30,7 @@ class Comida inherits ObjetosAgarrables{
 
 }
 
-object permiso inherits ObjetosAgarrables ( image = "imagen.png") {
+object permiso inherits ObjetosAgarrables ( image = "permiso.png") {
 
 	method colisionadoPor(personaje) {		
 		personaje.tienePermiso(true) 
