@@ -1,51 +1,48 @@
 import wollok.game.*
 import personaje.*
+import nivel.*
 
 
-class ObjetosAgarrables {
-//	var aumenta
-	var property position
 
-//	constructor (_position,_aumenta){
-//		position =  _position
-//		aumenta = _aumenta
-//	}
+class ObjetosAgarrables {	
+	var property image
 
-//	method movete() {
-//		const x = 0.randomUpTo(game.width()).truncate(0)
-//		const y = 0.randomUpTo(game.height()).truncate(0)
-//		position = game.at(x,y) 
-
-//}
-
-
-}
+	method ubicarAleatoriamente(visual){
+		var posicion = new Position (x=1.randomUpTo(anchoRecuadro),y=1.randomUpTo(altoRecuadro))
+		if(game.getObjectsIn(posicion).isEmpty())
+			visual.position(posicion)
+		else
+			self.ubicarAleatoriamente(visual)
+	}
+	
+	
+}	
 
 class Comida inherits ObjetosAgarrables{
-	var aumenta
-
-	method aumentaVida(cuantoaumenta){
-		aumenta = cuantoaumenta
-		}
-
-//	method colisionadoPor (personaje) {
-//		game.onCollideDo(personaje, { posicion => objeto.movete() })
-//		game.onCollideDo(personaje, {vida => personaje.vida() = vida() + aumenta})
-//	}
-
+	var property aumenta
+			
+	method colisionadoPor(visual,personaje) {
+	   	   self.ubicarAleatoriamente(visual) // cuando el personaje choque con la comida, la comida se ubica aleatoriamente
+	   	   personaje.aumentasalud(aumenta) // tiene que haber un metodo en el personaje que permita que aumente la salud
+	   	   game.say(self, "Sume " + aumenta + " de Salud!!") // cuando agarra una comida dice cuanto aumento su salud 
+	}
+	
 
 }
 
-object permiso {
+object permiso inherits ObjetosAgarrables ( image = "imagen.png") {
 
-// method choque (){
-//	game.onCollideDo(personaje, { posicion => self.movete() })
-//		game.onCollideDo(personaje, {metodo del personaje donde tiene el permiso})
-//	}
-
-
+	method colisionadoPor(personaje) {		
+		personaje.tienePermiso(true) 
+		game.say(personaje, "Tengo el Permiso")
+	}
 
 }
 
+const Hamburguesa = new Comida(image = "hamburguesa.png",aumenta = 15)
+const Pizza = new Comida(image = "pizza.png",aumenta = 20)
+const Agua = new Comida(image = "agua.png",aumenta = 35) 
+const Lavandina = new Comida(image = "lavandina.png",aumenta = 60)
+const Cocacola = new Comida(image = "coca.png",aumenta = 5)
 
 
