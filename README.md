@@ -38,7 +38,7 @@ Conseguir la mayor cantidad de puntos en vida.
 ### Mecánicas:  
 
 <ul> 
-  <li>El permiso: el permiso da inmunidad contra los policías durante 10 segundos.</li>
+  <li>El permiso: da inmunidad contra los policías durante 5 segundos.</li>
   <li>Desinfectante: reduce los niveles de COVID en 20%</li>
 </ul> 
 
