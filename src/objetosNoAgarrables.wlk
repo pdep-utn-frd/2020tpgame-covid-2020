@@ -25,7 +25,7 @@ object noAgarrables {
 		}
 	}
 	
-	method spawnearCosasNoAgarrables(){
+	method spawnearCosasNoAgarrables(){ 
 		var posicionesReservadas = [game.at(1,1),game.at(2,1),game.at(1,2),game.at(11,11),game.at(11,10),game.at(10,11)]
 		11.times{i=>
 				11.times{j=>
