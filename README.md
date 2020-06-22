@@ -7,15 +7,19 @@
 ### Resumen: 
 
 ### COVID RUNNER 2020
-La cuarentena empezó y nadie puede salir. ¡Tenes un minuto para aprovechar y salir a entrenar!
+La cuarentena empezó y nadie puede salir. ¡Salvo los runners!
 Nuestro personaje va a la plaza, pero ¡atención! hay que evitar a la gente infectada con coronavirus,
 intentá mantener el permiso, porque si te para la policia, sin él perdés y se extiende la cuarentena.
-No te olvides que el permiso expira a los 20 segundos, ¡así que tenes que renovarlo! 
-Mientras más pasa el tiempo, más gente y policias hay, ¡SUERTE!
+No te olvides que el permiso expira a los 5 segundos, ¡así que tenes que renovarlo! 
+Mientras más pasa el tiempo, más gente y policias hay (en revisión), ¡SUERTE!
 
 ### Instrucciones:
 
 Tu personaje es un runner que decide salir a entrenar en época de pandemia.
+
+Debe evitar a los policías en caso de no tener el permiso, y evitar a los infectados, pues estos le suben el nivel de infección.
+
+En caso de que un policía lo agarre sin permiso o el nivel de infección llegue a 100%, es game over.
 
 ### Controles: 
 
