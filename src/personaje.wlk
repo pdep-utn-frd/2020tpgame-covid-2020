@@ -13,18 +13,3 @@ import wollok.game.*
 //		position = nuevaPos
 //	}
 //}
-
-class Personaje{
-	var nivelInfectado = 0
-	
-	var position = game.origin()
-	
-	method image() = "assets/personaje/personaje1.png"
-	 
-	method position() = position
-	
-	method position(nuevaPos){
-		console.println(nuevaPos)
-		position = nuevaPos
-	}
-}
