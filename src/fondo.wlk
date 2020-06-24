@@ -7,7 +7,7 @@ class Visual {
 }
 
 const inicioDelJuego = new Visual(
-	image =  "assets/escenario/covid-runner-fondo.png",
+	image =  "assets/escenario/fondo2.png",
 	position = game.at(0,0)
 )
 

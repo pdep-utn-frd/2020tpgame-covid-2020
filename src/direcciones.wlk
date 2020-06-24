@@ -2,28 +2,53 @@ import wollok.game.*
 
 object arriba 
 {
-	method posicion(posicion) = posicion.up(1)
+	override method toString() = "Arriba"
 	
-	method posicion(posicion,n) = posicion.up(n)
+	method opuesta() { return abajo }
+	
+	method futuraPosicion(posicion) = posicion.up(1)
+	
+	method futuraPosicion(posicion,n) = posicion.up(n)
 }
 
 object abajo 
-{
-	method posicion(posicion) = posicion.down(1)
+{	
+	method opuesta() { return arriba }
 	
-	method posicion(posicion,n) = posicion.down(n)
+	method futuraPosicion(posicion) = posicion.down(1)
+	
+	method futuraPosicion(posicion,n) = posicion.down(n)
 }
 
 object izquierda
-{
-	method posicion(posicion) = posicion.left(1)
+{	
+	method opuesta() { return derecha }
 	
-	method posicion(posicion,n) = posicion.left(n)
+	method futuraPosicion(posicion) = posicion.left(1)
+	
+	method futuraPosicion(posicion,n) = posicion.left(n)
 }
 
 object derecha
-{
-	method posicion(posicion) = posicion.right(1)
+{	
+	method opuesta() { return izquierda }
 	
-	method posicion(posicion,n) = posicion.right(n)
+	method futuraPosicion(posicion) = posicion.right(1)
+	
+	method futuraPosicion(posicion,n) = posicion.right(n)
+}
+
+object centro
+{	
+	method futuraPosicion(posicion) = posicion
+	
+	method futuraPosicion(posicion, n) = posicion
+}
+
+//No me convence que vaya acá para nada. Pero después se cambia para la próxima entrega.
+object checker
+{
+	method estaVacia(posicion) {return game.getObjectsIn(posicion) == []}
+	
+	method tieneObjetoTranspasable(posicion){return game.getObjectsIn(posicion).any({objeto => objeto.transpasable()})}
 }

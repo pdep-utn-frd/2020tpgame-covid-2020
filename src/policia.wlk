@@ -1,29 +1,56 @@
-import entidadesMoviles.*
+import entidadMovil.*
 import direcciones.*
-import personaje.*
 import wollok.game.*
+import nivel.*
 
-class Policia inherits EntidadesMoviles
-{
-	//const property image = "assets/personajes/policia.png"
+class Policia inherits EntidadMovil
+{	
+	var property velocidad = 100.randomUpTo(500).roundUp()
 	
-	var property position = new Position()
-	
-	var property tiempoDeVida = new Tiempo()
+	method image() = "assets/personaje/policia1.png"
 	
 	method seguir(){
-		
+		const posPersonaje = nivel.buscarPersonaje()
+		var dir = self.calcularMejorDireccion(self.position(),posPersonaje)
+		self.moverHaciaSiEsPosible(dir)
 	}
-}
-
-
-//Esto tiene que haber un manejador que lo disminuya cada 1 segundo en el juego.
-class Tiempo
-{
-	var duracion = 60
 	
-	method disminuir()
-	{	
-		duracion -= 1
+	method calcularMejorDireccion(posicionPolicia, posicionPersonaje){
+		
+		var difX = self.calcularDiferencia(posicionPersonaje.x(),posicionPolicia.x()) 
+		var difY = self.calcularDiferencia(posicionPersonaje.y(),posicionPolicia.y())
+		
+		if (difX.abs() >= difY.abs()){
+			return self.moverLateralmente(difX,difY)
+		}else {
+			return self.moverVerticalmente(difX,difY)
+		}	
+		return centro
+	}
+	
+	method moverLateralmente(difX,difY){
+		if (difX != 0){
+			if (difX > 0){
+				return derecha
+			}else if (difX < 0){
+				return izquierda
+			}
+		}
+		return centro
+	}
+	
+	method moverVerticalmente(difX,difY){
+		if (difY != 0){
+			if (difY > 0){
+				return arriba
+			}else if(difY < 0){
+				return abajo
+			}
+		}
+		return centro
+	}
+	
+	method calcularDiferencia(pos1,pos2){
+		return pos1-pos2
 	}
 }
