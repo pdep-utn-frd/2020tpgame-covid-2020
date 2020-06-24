@@ -41,7 +41,6 @@ object movimiento {
 
 	method mover(direccion, elemento) {
 		const siguientePosicion = direccion.futuraPosicion(elemento.position())
-		// Ahora mismo no diferencia entre visuales solidos y los agarrables. Esto es importante para poder agarrar cosas, sino nunca vas a llegar a donde esten los agarrables.
 		if (checker.estaVacia(siguientePosicion) or checker.tieneObjetoTranspasable(siguientePosicion)) {
 			elemento.position(direccion.futuraPosicion(elemento.position()))
 		} else {
