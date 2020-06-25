@@ -1,23 +1,17 @@
 import wollok.game.*
 import nivel.*
+import superObjetos.*
 
-class ObjetosNoAgarrables {
 
-	/*var posNoAgrarrables = []
-	var property posOcupadas = []*/
-	var property position = game.at(1.randomUpTo(nivel.anchoRecuadro() - 1).roundUp(), 1.randomUpTo(nivel.altoRecuadro() - 1).roundUp())
+class ObjetosNoAgarrables inherits SuperObjetos{
+
+	
 	const property transpasable = false
 	/*method agregar(pos) {
 		posOcupadas.add(pos)
 	}
 
-	method remover(pos) {
-		posOcupadas.remove(pos)
-	}
-
-	method posicionOcupada(pos) {
-		return posNoAgrarrables.contains(pos) or posOcupadas.contains(pos)
-	}
+	
 
 	method esONAgarrable(pos) {
 		return posNoAgrarrables.contains(pos)
