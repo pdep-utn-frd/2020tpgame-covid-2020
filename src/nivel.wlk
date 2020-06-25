@@ -11,7 +11,7 @@ object nivel {
 	const property altoTotal = 17
 	const property anchoRecuadro = anchoTotal - 1
 	const property altoRecuadro = altoTotal - 1
-
+	var personaje
 	method inicio() {
 		game.clear()
 		game.title("COVID RUNNER 2020")
@@ -26,6 +26,7 @@ object nivel {
 		game.clear()
 		const policias = [ new Policia(), new Policia(), new Policia(), new Policia() ]
 		const infectados = [ new Infectado(), new Infectado(), new Infectado(), new Infectado() ]
+		personaje = new Visual(image =  "assets/personaje/personaje1.png", position = game.at(5,5))
 			// Visuals
 		game.addVisual(personaje)
 		policias.forEach({ policia => game.addVisual(policia)})
@@ -38,11 +39,12 @@ object nivel {
 			verticeInicial= new Position(x=0,y=0),
 			verticeFinal = new Position(x=anchoRecuadro, y=altoRecuadro),
 			image = "assets/escenario/arbusto.png").dibujar()
-		score.dibujar()
+		score.dibujarInicial()
 			// Colisiones	
 		game.whenCollideDo(personaje, { elemento =>
-			elemento.colisionadoPor(personaje)
-			win.actualizarScoreTotal()
+			console.println('choco')
+//			elemento.colisionadoPor(personaje)
+			score.actualizarScoreTotal()
 		})
 			// Musica
 		const musica = game.sound("assets/audio/juego.mp3")

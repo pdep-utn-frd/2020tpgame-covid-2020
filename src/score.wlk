@@ -3,28 +3,57 @@ import fondo.*
 import factories.*
 
 object score{
-//	const elementos = kangreburger.ingredientes() + [kangreburger,plankton]
-	const posicionInicial = new Position(x=24,y=9)
+	const property porcentajeInfectado = 0
+	var vida
+	method dibujarInicial(){
+		vida = new Visual(
+		image =  "assets/score/VIDA_0.png",
+		position = game.at(2,14))
+		game.addVisual(vida)
+	}
 	
-	method dibujar(){
-		var n = 0
-//		elementos.forEach{ elem=>self.dibujarItem(elem, posicionInicial.down(n))
-//			n+=1
-//		}
+	method actualizarScoreTotal(){
+		if(porcentajeInfectado == 0){
+			game.removeVisual(vida)
+			vida = new Visual(
+			image =  "assets/score/VIDA_0.png",
+			position = game.at(3,15))
+			game.addVisual(vida)
+		}
+		else if(porcentajeInfectado <= 20){
+			game.removeVisual(vida)
+			vida = new Visual(
+			image =  "assets/score/VIDA_2.png",
+			position = game.at(3,15))
+			game.addVisual(vida)
+		}
+		else if(porcentajeInfectado <= 40){
+			game.removeVisual(vida)
+			vida = new Visual(
+			image =  "assets/score/VIDA_4.png",
+			position = game.at(3,15))
+			game.addVisual(vida)
+		}
+		else if(porcentajeInfectado <= 60){
+			game.removeVisual(vida)
+			vida = new Visual(
+			image =  "assets/score/VIDA_6.png",
+			position = game.at(3,15))
+			game.addVisual(vida)
+		}
+		else if(porcentajeInfectado <= 80){
+			game.removeVisual(vida)
+			vida = new Visual(
+			image =  "assets/score/VIDA_HIT_old.png",
+			position = game.at(3,15))
+			game.addVisual(vida)
+		}
+		else if(porcentajeInfectado <= 100){
+			game.removeVisual(vida)
+			vida = new Visual(
+			image =  "assets/score/VIDA_HIT.png",
+			position = game.at(3,15))
+			game.addVisual(vida)
+		}
 	}
-	method dibujarItem(elemento,posicion){
-		game.addVisual(new Visual(image = elemento.image(),position = posicion))
-		game.addVisualIn(numberConverter.getNumberImage(elemento.score().div(10)),posicion.right(1))
-		game.addVisualIn(numberConverter.getNumberImage(elemento.score() % 10),posicion.right(2))
-		
-	}
-
 }
-
-object numberConverter{
-    method getNumberImage(number){
-    	return new Visual(image= "nro" + number + ".png")
-    }
-}
-
-
