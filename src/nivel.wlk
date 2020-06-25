@@ -4,6 +4,9 @@ import factories.*
 import score.*
 import policia.*
 import infectado.*
+import personaje.*
+import objetoAgarrable.*
+import objetoNoAgarrable.*
 
 object nivel {
 
@@ -11,7 +14,8 @@ object nivel {
 	const property altoTotal = 17
 	const property anchoRecuadro = anchoTotal - 1
 	const property altoRecuadro = altoTotal - 1
-	var personaje
+	const musica = game.sound("assets/audio/juego.mp3")
+
 	method inicio() {
 		game.clear()
 		game.title("COVID RUNNER 2020")
@@ -24,33 +28,47 @@ object nivel {
 
 	method configurate() {
 		game.clear()
-		const policias = [ new Policia(), new Policia(), new Policia(), new Policia() ]
-		const infectados = [ new Infectado(), new Infectado(), new Infectado(), new Infectado() ]
-		personaje = new Visual(image =  "assets/personaje/personaje1.png", position = game.at(5,5))
+		
+			//Setup Visuals
+		const policias = []
+		4.times({i=>policias.add(new Policia())})
+		const infectados = []
+		4.times({i=>infectados.add(new Infectado())})
+		const objetosAgarrables = [new Hamburguesa(), new Pizza(), permiso]
+		const objetosNoAgarrables = []
+		//TODO esto debería de hacerse de una manera coherente, ahora es totalmente random.
+		2.times({i=>objetosNoAgarrables.add(new Arbol1())})
+		2.times({i=>objetosNoAgarrables.add(new Arbol2())})
+		2.times({i=>objetosNoAgarrables.add(new Piedra())})
+		
 			// Visuals
 		game.addVisual(personaje)
 		policias.forEach({ policia => game.addVisual(policia)})
 		infectados.forEach({ infectado => game.addVisual(infectado)})
-			// Movimientos de la "IA" (Esto provoca un progresivo empeoramiento en la performance del wollok game.)
+		objetosAgarrables.forEach({objeto => game.addVisual(objeto)})
+		objetosNoAgarrables.forEach({objeto => game.addVisual(objeto)})
+		
+			// Movimientos de la "IA" y eventos temporales (Esto provoca un progresivo empeoramiento de la performance en wollok game.)
 		policias.forEach({ policia => handlerTemporal.moverPolicia(policia)})
 		infectados.forEach({ infectado => handlerTemporal.moverInfectado(infectado)})
+		handlerTemporal.actualizarPermiso()
+		
+		
 		movimiento.configurarFlechas(personaje)
-		new MarcoSolido(
-			verticeInicial= new Position(x=0,y=0),
-			verticeFinal = new Position(x=anchoRecuadro, y=altoRecuadro),
-			image = "assets/escenario/arbusto.png").dibujar()
+		new MarcoSolido(verticeInicial= new Position(x=0,y=0),verticeFinal = new Position(x=anchoRecuadro, y=altoRecuadro)).colocarArbustos()
 		score.dibujarInicial()
+		
 			// Colisiones	
-		game.whenCollideDo(personaje, { elemento =>
-			console.println('choco')
-//			elemento.colisionadoPor(personaje)
+		game.whenCollideDo(personaje, { elemento =>		
+			elemento.colisionadoPor(personaje)
 			score.actualizarScoreTotal()
 		})
 			// Musica
-		const musica = game.sound("assets/audio/juego.mp3")
 		musica.play()
 	}
 
+
+	//Este metodo no se usa. (todavía?)
 	method ubicarAleatoriamente(visual) {
 		var posicion = new Position(x = 1.randomUpTo(anchoRecuadro), y = 1.randomUpTo(altoRecuadro))
 		if (game.getObjectsIn(posicion).isEmpty()) visual.position(posicion) else self.ubicarAleatoriamente(visual)
@@ -60,17 +78,27 @@ object nivel {
 		return personaje.position()
 	}
 
+	method gameOver() {
+		game.clear()
+		musica.stop()
+		game.addVisual(finDelJuego)
+		keyboard.space().onPressDo{ 
+			game.stop()
+		}
+	}
+
 }
 
 object handlerTemporal {
 
-	method moverPolicia(policia) {
-		game.onTick(policia.velocidad(), "MovimientoPolicia", {=> policia.seguir()})
-	}
+	method moverPolicia(policia) {game.onTick(policia.velocidad(), "MovimientoPolicia", {=> policia.seguir()})}
 
-	method moverInfectado(infectado) {
-		game.onTick(infectado.velocidad(), "MovimientoInfectado", {=> infectado.correr()})
-	}
+	method moverInfectado(infectado) {game.onTick(infectado.velocidad(), "MovimientoInfectado", {=> infectado.correr()})}
+	
+	//TODO Esto no empieza a contar a partir de que renuevo el permiso, sino que lo hace siempre.
+	method actualizarPermiso(){game.onTick(5000, "VencePermiso", {=> personaje.permiso(false)
+		game.say(personaje, "Debo renovar mi permiso!")
+	})}
 
 }
 

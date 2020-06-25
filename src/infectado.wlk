@@ -1,5 +1,6 @@
 import entidadMovil.*
 import direcciones.*
+import factories.*
 
 class Infectado inherits EntidadMovil {
 
@@ -7,6 +8,12 @@ class Infectado inherits EntidadMovil {
 	var property velocidad = 100.randomUpTo(300).roundUp()
 
 	method image() = "assets/personaje/Infectado.png"
+
+
+	//TODO Se hacen demasiadas colisiones al mismo tiempo.
+	override method colisionadoPor(personaje){
+		personaje.recibirInfeccion()
+	}
 
 	method correr() {
 		const ultimaPos = self.position()

@@ -1,59 +1,38 @@
 import wollok.game.*
 import fondo.*
 import factories.*
+import personaje.*
 
-object score{
-	const property porcentajeInfectado = 0
+//TODO la barra de vida es una entidad más, la cual se puede chocar, eso da error, ya que no tiene el método "colisionadoPor(personaje)"
+object score {
+
+
 	var vida
-	method dibujarInicial(){
-		vida = new Visual(
-		image =  "assets/score/VIDA_0.png",
-		position = game.at(2,14))
+
+	method dibujarInicial() {
+		vida = new Visual(image = "assets/score/VIDA_0_relleno.png", position = game.at(1, 16))
 		game.addVisual(vida)
 	}
-	
-	method actualizarScoreTotal(){
-		if(porcentajeInfectado == 0){
+
+	method actualizarScoreTotal() {
+		if (personaje.porcentajeInfeccion() == 0) {
 			game.removeVisual(vida)
-			vida = new Visual(
-			image =  "assets/score/VIDA_0.png",
-			position = game.at(3,15))
+			vida = new Visual(image = "assets/score/VIDA_0_relleno.png", position = game.at(1, 16))
 			game.addVisual(vida)
-		}
-		else if(porcentajeInfectado <= 20){
+		} else if (personaje.porcentajeInfeccion() == 25) {
 			game.removeVisual(vida)
-			vida = new Visual(
-			image =  "assets/score/VIDA_2.png",
-			position = game.at(3,15))
+			vida = new Visual(image = "assets/score/VIDA_1_relleno.png", position = game.at(1, 16))
 			game.addVisual(vida)
-		}
-		else if(porcentajeInfectado <= 40){
+		} else if (personaje.porcentajeInfeccion() == 50) {
 			game.removeVisual(vida)
-			vida = new Visual(
-			image =  "assets/score/VIDA_4.png",
-			position = game.at(3,15))
+			vida = new Visual(image = "assets/score/VIDA_4_relleno.png", position = game.at(1, 16))
 			game.addVisual(vida)
-		}
-		else if(porcentajeInfectado <= 60){
+		} else if (personaje.porcentajeInfeccion() == 75) {
 			game.removeVisual(vida)
-			vida = new Visual(
-			image =  "assets/score/VIDA_6.png",
-			position = game.at(3,15))
+			vida = new Visual(image = "assets/score/VIDA_7_relleno.png", position = game.at(1, 16))
 			game.addVisual(vida)
-		}
-		else if(porcentajeInfectado <= 80){
-			game.removeVisual(vida)
-			vida = new Visual(
-			image =  "assets/score/VIDA_HIT_old.png",
-			position = game.at(3,15))
-			game.addVisual(vida)
-		}
-		else if(porcentajeInfectado <= 100){
-			game.removeVisual(vida)
-			vida = new Visual(
-			image =  "assets/score/VIDA_HIT.png",
-			position = game.at(3,15))
-			game.addVisual(vida)
-		}
+		} 
 	}
+
 }
+

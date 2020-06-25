@@ -1,4 +1,5 @@
 import wollok.game.*
+import nivel.*
 
 object arriba 
 {
@@ -51,4 +52,6 @@ object checker
 	method estaVacia(posicion) {return game.getObjectsIn(posicion) == []}
 	
 	method tieneObjetoTranspasable(posicion){return game.getObjectsIn(posicion).any({objeto => objeto.transpasable()})}
+	
+	method estaPersonajeEn(posicion) {return posicion == nivel.buscarPersonaje()}
 }
