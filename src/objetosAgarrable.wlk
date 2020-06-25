@@ -7,7 +7,7 @@ class Personaje{
 	method tienepermiso()= true
 }
 
-class Comida inherits SuperObjetos {
+class Comida inherits SuperObjeto {
 
 	var property aumenta
 
@@ -19,7 +19,7 @@ class Comida inherits SuperObjetos {
 
 }
 
-object permiso inherits SuperObjetos (image = "permiso.png") {
+object permiso inherits SuperObjeto (image = "permiso.png") {
 
 	method colisionadoPor(personaje) {
 		personaje.tienePermiso(true)

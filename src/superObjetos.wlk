@@ -1,7 +1,7 @@
 import wollok.game.*
 import nivel.*
 
-class SuperObjetos {
+class SuperObjeto {
 
 
 	var property image
