@@ -16,6 +16,8 @@ class Policia inherits EntidadMovil {
 	override method colisionadoPor(personaje){
 		if(!personaje.permiso()){
 			nivel.gameOver()
+		}else{
+			game.say(self, "Muy bien! Siga circulando.")
 		}
 	}		
 

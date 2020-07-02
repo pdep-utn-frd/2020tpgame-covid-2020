@@ -4,8 +4,6 @@ import factories.*
 import personaje.*
 
 object score {
-
-
 	var vida
 
 	method dibujarInicial() {

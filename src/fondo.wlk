@@ -5,6 +5,10 @@ class Visual {
 	var property image
 	var property position = game.origin()
 
+	method colisionadoPor(personaje){
+		
+	}
+
 }
 
 const inicioDelJuego = new Visual(image = "assets/escenario/fondo2.png", position = game.at(0, 0))
