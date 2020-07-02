@@ -6,6 +6,10 @@ import nivel.*
 class Policia inherits EntidadMovil {
 
 	var property velocidad = 300.randomUpTo(700).roundUp()
+	
+	method comenzarMovimientoPeriodico(){
+		game.onTick(self.velocidad(), "MovimientoPolicia", {=> self.seguir()})
+	}
 
 	method image() = "assets/personaje/policia1.png"
 	

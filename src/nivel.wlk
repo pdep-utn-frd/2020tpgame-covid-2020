@@ -60,28 +60,22 @@ object nivel {
 		objetosAgarrables.forEach({objeto => game.addVisual(objeto)})
 		objetosNoAgarrables.forEach({objeto => game.addVisual(objeto)})
 		
-		// Movimientos de la "IA" y eventos temporales (Esto provoca un progresivo empeoramiento de la performance en wollok game.)
-		policias.forEach({ policia => handlerTemporal.moverPolicia(policia)})
-		infectados.forEach({ infectado => handlerTemporal.moverInfectado(infectado)})
-
+			// Movimientos de la "IA" y eventos temporales (Esto provoca un progresivo empeoramiento de la performance en wollok game.)
+		policias.forEach({ policia => policia.comenzarMovimientoPeriodico()})
+		infectados.forEach({ infectado => infectado.comenzarMovimientoPeriodico()})
+		handlerTemporal.actualizarPermiso()
+		
 		movimiento.configurarFlechas(personaje)
 		new MarcoSolido(verticeInicial= new Position(x=0,y=0),verticeFinal = new Position(x=anchoRecuadro, y=altoRecuadro)).colocarArbustos()
 		score.dibujarInicial()
 		
-		// Colisiones	
-		game.whenCollideDo(personaje, { elemento =>		
+			// Colisiones	
+		game.onCollideDo(personaje, { elemento =>		
 			elemento.colisionadoPor(personaje)
 			score.actualizarScoreTotal()
 		})
 		// Musica
 		musica.play()
-	}
-
-
-	//Este metodo no se usa. (todavía?)
-	method ubicarAleatoriamente(visual) {
-		var posicion = new Position(x = 1.randomUpTo(anchoRecuadro), y = 1.randomUpTo(altoRecuadro))
-		if (game.getObjectsIn(posicion).isEmpty()) visual.position(posicion) else self.ubicarAleatoriamente(visual)
 	}
 
 	method buscarPersonaje() {
@@ -91,7 +85,12 @@ object nivel {
 	method gameOver() {
 		game.clear()
 		musica.stop()
-		game.addVisual(finDelJuego)
+		if (personaje.porcentajeInfeccion() >= 100){
+			game.addVisual(finDelJuegoInfectado)
+		}else{
+			game.addVisual(finDelJuegoInfectado)
+		}
+		
 		keyboard.space().onPressDo{ 
 			game.stop()
 		}
