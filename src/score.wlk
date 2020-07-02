@@ -5,8 +5,6 @@ import personaje.*
 
 //TODO la barra de vida es una entidad más, la cual se puede chocar, eso da error, ya que no tiene el método "colisionadoPor(personaje)"
 object score {
-
-
 	var vida
 
 	method dibujarInicial() {

@@ -8,7 +8,6 @@ class Personaje{
 }
 
 class Comida inherits SuperObjeto {
-
 	//TODO comida solo debe afectar la puntación.
 	var property porcentaje
 
@@ -22,17 +21,16 @@ class Comida inherits SuperObjeto {
 
 
 //Este nombre sigue sin convencerme.
-object permiso inherits SuperObjeto (image = "assets/objetos/permiso.png") {
-
+class Permiso inherits SuperObjeto {
+	
+	override method image() = "assets/objetos/permiso.png"
+	
 	method colisionadoPor(personaje) {
-		personaje.permiso(true)
-		game.say(personaje, "Tengo el Permiso")
-		game.removeVisual(self)
+		personaje.agarroPermiso()
+		self.cambiarPosicion()
 	}
 
 }
-
-
 
 class Hamburguesa inherits Comida {
 	override method image() = "assets/objetos/hamburguesa.png"
