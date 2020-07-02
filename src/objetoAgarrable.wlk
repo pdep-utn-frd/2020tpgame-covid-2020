@@ -11,27 +11,34 @@ class Personaje{
 class Lavandina inherits SuperObjeto{
 	var property porcentaje
 	
-	method colisionadoPor(Personaje){
+	constructor(pPorcentaje, pImagen){
+		porcentaje = pPorcentaje
+		image = pImagen
+	}
+	
+	method colisionadoPor(pPersonaje){
 		personaje.disminuirPorcentaje(porcentaje)
-		game.removeVisual(self)
-		
+		self.cambiarPosicion()
 	// falta hacer que cambie de lugar??????	
 	}
 }
 class Comida inherits SuperObjeto {
 
 	var property puntaje
+	
+	constructor(pPuntaje, pImagen){
+		puntaje = pPuntaje
+		image = pImagen
+	}
 
-	method colisionadoPor(Personaje) {
-		personaje.aumentarPuntaje(puntaje) 
-		game.removeVisual(self)
+	method colisionadoPor(personaje) {
+//		personaje.aumentarPuntaje(puntaje) 
+		self.cambiarPosicion()
 		
 	}
 	
 }
 
-
-//Este nombre sigue sin convencerme.
 class Permiso inherits SuperObjeto {
 	
 	override method image() = "assets/objetos/permiso.png"
@@ -42,16 +49,3 @@ class Permiso inherits SuperObjeto {
 	}
 
 }
-
-
-object hamburguesa{}
-
-object pizza {}
-
-object  agua {}
-
-object lavandina{}
-
-object cocacola{}
-
-

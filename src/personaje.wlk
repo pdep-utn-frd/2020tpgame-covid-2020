@@ -1,5 +1,6 @@
 import wollok.game.*
 import direcciones.*
+import score.*
 
 object personaje {
 
@@ -27,6 +28,7 @@ object personaje {
 	
 	method disminuirPorcentaje(porcentaje){
 		porcentajeInfeccion = 0.max(porcentajeInfeccion - porcentaje)
+		score.actualizarScoreTotal()
 	}
 	
 	method agarroPermiso(){

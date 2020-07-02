@@ -35,7 +35,15 @@ object nivel {
 		4.times({i=>policias.add(new Policia())})
 		const infectados = []
 		4.times({i=>infectados.add(new Infectado())})
-		const objetosAgarrables = [new Hamburguesa(), new Pizza(), new Permiso()]
+		
+		const hamburguesa = new Comida(25, 'assets/objetos/hamburguesa.png')
+		const agua = new Comida(40, 'assets/objetos/agua.png')
+		const cocacola = new Comida(10, 'assets/objetos/coca.png')
+		const pizza = new Comida(15, 'assets/objetos/pizza.png')
+		const lavandina = new Lavandina(25, 'assets/objetos/lavandina.png')
+		const pancho = new Comida(20, 'assets/objetos/pancho-pixel.png')
+		
+		const objetosAgarrables = [hamburguesa, agua, cocacola, pizza, lavandina, pancho, new Permiso()]
 		const objetosNoAgarrables = []
 		//TODO esto debería de hacerse de una manera coherente, ahora es totalmente random.
 		2.times({i=>objetosNoAgarrables.add(new Arbol1())})
