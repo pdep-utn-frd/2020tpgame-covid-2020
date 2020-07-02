@@ -31,12 +31,12 @@ object personaje {
 	}
 	
 	method aumentarPuntaje(puntaje){
-		nivelPuntaje = nivelPuntaje + puntaje
+		nivelPuntaje += puntaje
 	}
 	
 	method disminuirPorcentaje(porcentaje){
 		porcentajeInfeccion = 0.max(porcentajeInfeccion - porcentaje)
-		score.actualizarScoreTotal()
+		score.actualizarScoreTotal(false)
 	}
 	
 	method agarroPermiso(){

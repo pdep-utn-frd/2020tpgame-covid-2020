@@ -16,6 +16,7 @@ object nivel {
 	const property anchoRecuadro = anchoTotal - 1
 	const property altoRecuadro = altoTotal - 1
 	const musica = game.sound("assets/audio/juego.mp3")
+	var terminoElJuego = false
 
 	method inicio() {
 		game.clear()
@@ -63,7 +64,6 @@ object nivel {
 			// Movimientos de la "IA" y eventos temporales (Esto provoca un progresivo empeoramiento de la performance en wollok game.)
 		policias.forEach({ policia => policia.comenzarMovimientoPeriodico()})
 		infectados.forEach({ infectado => infectado.comenzarMovimientoPeriodico()})
-		handlerTemporal.actualizarPermiso()
 		
 		movimiento.configurarFlechas(personaje)
 		new MarcoSolido(verticeInicial= new Position(x=0,y=0),verticeFinal = new Position(x=anchoRecuadro, y=altoRecuadro)).colocarArbustos()
@@ -72,7 +72,7 @@ object nivel {
 			// Colisiones	
 		game.onCollideDo(personaje, { elemento =>		
 			elemento.colisionadoPor(personaje)
-			score.actualizarScoreTotal()
+			score.actualizarScoreTotal(terminoElJuego)
 		})
 		// Musica
 		musica.play()
@@ -83,12 +83,17 @@ object nivel {
 	}
 
 	method gameOver() {
+		terminoElJuego = true
 		game.clear()
 		musica.stop()
 		if (personaje.porcentajeInfeccion() >= 100){
 			game.addVisual(finDelJuegoInfectado)
+			game.addVisual(entrenador)
+			entrenador.puntajeFinal()
 		}else{
-			game.addVisual(finDelJuegoInfectado)
+			game.addVisual(finDelJuegoPolicia)
+			game.addVisual(entrenador)
+			entrenador.puntajeFinal()
 		}
 		
 		keyboard.space().onPressDo{ 
@@ -97,10 +102,3 @@ object nivel {
 	}
 
 }
-
-object handlerTemporal {
-	method moverPolicia(policia) {game.onTick(policia.velocidad(), "MovimientoPolicia", {=> policia.seguir()})}
-
-	method moverInfectado(infectado) {game.onTick(infectado.velocidad(), "MovimientoInfectado", {=> infectado.correr()})}
-}
-

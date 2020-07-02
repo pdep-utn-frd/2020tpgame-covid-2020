@@ -19,7 +19,6 @@ class Lavandina inherits SuperObjeto{
 	method colisionadoPor(pPersonaje){
 		personaje.disminuirPorcentaje(porcentaje)
 		self.cambiarPosicion()
-	// falta hacer que cambie de lugar??????	
 	}
 }
 class Comida inherits SuperObjeto {
@@ -32,7 +31,7 @@ class Comida inherits SuperObjeto {
 	}
 
 	method colisionadoPor(personaje) {
-//		personaje.aumentarPuntaje(puntaje) 
+		personaje.aumentarPuntaje(puntaje) 
 		self.cambiarPosicion()
 		
 	}

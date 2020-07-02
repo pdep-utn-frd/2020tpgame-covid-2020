@@ -4,7 +4,7 @@ import personaje.*
 
 object entrenador {
 
-	var property image = "assets/personaje/personaje1.png"
+	var property image = "assets/personaje/entrenador.png"
 	var property position = game.at(24, 12)
 	
 	method manejadorDialogos(){
@@ -14,11 +14,14 @@ object entrenador {
 		game.onTick(3000, 'sayEntrenadoraa', {
 			game.say(self, 'Corré más rápido!')
 		})
-//		game.onTick(5000, 'sayPuntosEntrenador', {
-//			game.say(self, 'Tenes ' + personaje.nivelPuntaje() + '!')
-//		})
+		game.onTick(5000, 'sayPuntosEntrenador', {
+			game.say(self, 'Tenes ' + personaje.nivelPuntaje() + '!')
+		})
 	}
 	
+	method puntajeFinal(){
+		game.say(self, 'Puntaje:  ' + personaje.nivelPuntaje())
+	}
 	method colisionadoPor(personaje) {
 		game.say(self, 'No me choques!')
 	}
