@@ -11,7 +11,7 @@ La cuarentena empezó y nadie puede salir. ¡Salvo los runners!
 Nuestro personaje va a la plaza, pero ¡atención! hay que evitar a la gente infectada con coronavirus,
 intentá mantener el permiso, porque si te para la policia, sin él perdés y se extiende la cuarentena.
 No te olvides que el permiso expira a los 5 segundos, ¡así que tenes que renovarlo! 
-Mientras más pasa el tiempo, más gente y policias hay (en revisión), ¡SUERTE!
+¡SUERTE!
 
 ### Instrucciones:
 
@@ -33,13 +33,13 @@ Flecha abajo: Moverse abajo
 
 ### Objetivo: 
 
-Conseguir la mayor cantidad de puntos en vida.
+Conseguir la mayor cantidad de puntos agarrando comida, mientras no estes enfermo o detenido!
 
 ### Mecánicas:  
 
 <ul> 
   <li>El permiso: da inmunidad contra los policías durante 5 segundos.</li>
-  <li>Desinfectante: reduce los niveles de COVID en 20%</li>
+  <li>Desinfectante: reduce los niveles de COVID en 25%</li>
 </ul> 
 
 ### Obstaculos/Peligros:
