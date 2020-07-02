@@ -20,7 +20,6 @@ class Comida inherits SuperObjeto {
 
 }
 
-
 //Este nombre sigue sin convencerme.
 object permiso inherits SuperObjeto (image = "assets/objetos/permiso.png") {
 
@@ -31,8 +30,6 @@ object permiso inherits SuperObjeto (image = "assets/objetos/permiso.png") {
 	}
 
 }
-
-
 
 class Hamburguesa inherits Comida {
 	override method image() = "assets/objetos/hamburguesa.png"
