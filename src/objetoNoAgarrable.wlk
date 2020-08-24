@@ -6,8 +6,8 @@ import factories.*
 
 class ObjetoNoAgarrable inherits SuperObjeto {
 
-	method colisionadoPor(personaje) {
-		movimiento.mover(personaje.ultimaDireccion().opuesta(), personaje)
+	method colisionadoPor(algo) {
+		movimiento.mover(algo.ultimaDireccion().opuesta(), algo)
 	}
 
 }

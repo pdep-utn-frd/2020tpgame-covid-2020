@@ -16,7 +16,7 @@ class EntidadMovil {
 		return checker.estaVacia(direccion.futuraPosicion(self.position()))
 	}
 	
-	method colisionadoPor(personaje)
+	method colisionadoPor(algo)
 
 }
 

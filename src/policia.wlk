@@ -13,8 +13,8 @@ class Policia inherits EntidadMovil {
 
 	method image() = "assets/personaje/policia1.png"
 	
-	override method colisionadoPor(personaje){
-		if(!personaje.permiso()){
+	override method colisionadoPor(algo){
+		if(!algo.permiso()){
 			nivel.gameOver()
 		}else{
 			game.say(self, "Muy bien! Siga circulando.")

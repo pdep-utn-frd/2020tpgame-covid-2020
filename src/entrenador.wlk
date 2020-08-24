@@ -22,7 +22,7 @@ object entrenador {
 	method puntajeFinal(){
 		game.say(self, 'Puntaje:  ' + personaje.nivelPuntaje())
 	}
-	method colisionadoPor(personaje) {
+	method colisionadoPor(algo) {
 		game.say(self, 'No me choques!')
 	}
 }
