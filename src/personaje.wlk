@@ -22,7 +22,6 @@ object personaje {
 		})
 	}
 	
-	//TODO Esto no funciona bien, se hace infinitamente (no se por qué)
 	method recibirInfeccion(){
 		porcentajeInfeccion += 25
 		if (porcentajeInfeccion >= 100){

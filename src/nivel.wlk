@@ -32,44 +32,38 @@ object nivel {
 		game.clear()
 		
 		//Setup Visuals
-		const policias = []
-		4.times({i=>policias.add(new Policia())})
-		const infectados = []
-		4.times({i=>infectados.add(new Infectado())})
+		const npc = [];
+		4.times({i=>npc.add(new Policia())});
+		4.times({i=>npc.add(new Infectado())});
 		
-		const hamburguesa = new Comida(25, 'assets/objetos/hamburguesa.png')
-		const agua = new Comida(40, 'assets/objetos/agua.png')
-		const cocacola = new Comida(10, 'assets/objetos/coca.png')
-		const pizza = new Comida(15, 'assets/objetos/pizza.png')
-		const lavandina = new Lavandina(25, 'assets/objetos/lavandina.png')
-		const pancho = new Comida(20, 'assets/objetos/pancho-pixel.png')
+		const hamburguesa = new Comida(puntaje = 25,image = 'assets/objetos/hamburguesa.png')
+		const agua = new Comida(puntaje = 40, image = 'assets/objetos/agua.png')
+		const cocacola = new Comida(puntaje = 10, image = 'assets/objetos/coca.png')
+		const pizza = new Comida(puntaje = 15, image = 'assets/objetos/pizza.png')
+		const lavandina = new Lavandina(porcentaje = 25, image = 'assets/objetos/lavandina.png')
+		const pancho = new Comida(puntaje = 20, image = 'assets/objetos/pancho-pixel.png')
 		
-		const objetosAgarrables = [hamburguesa, agua, cocacola, pizza, lavandina, pancho, new Permiso()]
-		const objetosNoAgarrables = []
-		//TODO esto debería de hacerse de una manera coherente, ahora es totalmente random.
-		2.times({i=>objetosNoAgarrables.add(new Arbol1())})
-		2.times({i=>objetosNoAgarrables.add(new Arbol2())})
-		2.times({i=>objetosNoAgarrables.add(new Piedra())})
+		const objetos = [hamburguesa, agua, cocacola, pizza, lavandina, pancho, new Permiso()];
+		2.times({i=>objetos.add(new Arbol1())})
+		2.times({i=>objetos.add(new Arbol2())})
+		2.times({i=>objetos.add(new Piedra())})
 		
 		// Visuals
 		game.addVisual(personaje)
 		game.addVisual(entrenador)
 		entrenador.manejadorDialogos()
 		personaje.arrancaPersonaje()
-		policias.forEach({ policia => game.addVisual(policia)})
-		infectados.forEach({ infectado => game.addVisual(infectado)})
-		objetosAgarrables.forEach({objeto => game.addVisual(objeto)})
-		objetosNoAgarrables.forEach({objeto => game.addVisual(objeto)})
+		npc.forEach({ policia => game.addVisual(policia)})
+		objetos.forEach({objeto => game.addVisual(objeto)})
 		
-			// Movimientos de la "IA" y eventos temporales (Esto provoca un progresivo empeoramiento de la performance en wollok game.)
-		policias.forEach({ policia => policia.comenzarMovimientoPeriodico()})
-		infectados.forEach({ infectado => infectado.comenzarMovimientoPeriodico()})
+		// Movimientos de la "IA" y eventos temporales.
+		npc.forEach({ policia => policia.comenzarMovimientoPeriodico()})
 		
 		movimiento.configurarFlechas(personaje)
 		new MarcoSolido(verticeInicial= new Position(x=0,y=0),verticeFinal = new Position(x=anchoRecuadro, y=altoRecuadro)).colocarArbustos()
 		score.dibujarInicial()
 		
-			// Colisiones	
+		// Colisiones	
 		game.onCollideDo(personaje, { elemento =>		
 			elemento.colisionadoPor(personaje)
 			score.actualizarScoreTotal(terminoElJuego)
@@ -88,13 +82,11 @@ object nivel {
 		musica.stop()
 		if (personaje.porcentajeInfeccion() >= 100){
 			game.addVisual(finDelJuegoInfectado)
-			game.addVisual(entrenador)
-			entrenador.puntajeFinal()
 		}else{
 			game.addVisual(finDelJuegoPolicia)
-			game.addVisual(entrenador)
-			entrenador.puntajeFinal()
 		}
+		game.addVisual(entrenador)
+		entrenador.puntajeFinal()
 		
 		keyboard.space().onPressDo{ 
 			game.stop()

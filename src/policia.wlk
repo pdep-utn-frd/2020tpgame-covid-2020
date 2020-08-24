@@ -31,34 +31,24 @@ class Policia inherits EntidadMovil {
 		var difX = self.calcularDiferencia(posicionPersonaje.x(), posicionPolicia.x())
 		var difY = self.calcularDiferencia(posicionPersonaje.y(), posicionPolicia.y())
 		if (difX.abs() >= difY.abs()) {
-			return self.moverLateralmente(difX, difY)
+			return self.moverLateralmente(difX)
 		} else {
-			return self.moverVerticalmente(difX, difY)
+			return self.moverVerticalmente(difY)
 		}
 		return centro
 	}
 
-	method moverLateralmente(difX, difY) {
-		if (difX != 0) {
-			if (difX > 0) {
-				return derecha
-			} else if (difX < 0) {
-				return izquierda
-			}
-		}
-		return centro
+
+	method moverLateralmente(difX) {
+		if (difX == 0) return centro
+		return ( if (difX > 0) derecha else izquierda )
+	}
+	
+	method moverVerticalmente(difY) {
+		if (difY == 0) return centro
+		return ( if (difY > 0) arriba else abajo)
 	}
 
-	method moverVerticalmente(difX, difY) {
-		if (difY != 0) {
-			if (difY > 0) {
-				return arriba
-			} else if (difY < 0) {
-				return abajo
-			}
-		}
-		return centro
-	}
 
 	method calcularDiferencia(pos1, pos2) {
 		return pos1 - pos2

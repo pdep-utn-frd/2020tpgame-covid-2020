@@ -11,11 +11,6 @@ class Personaje{
 class Lavandina inherits SuperObjeto{
 	var property porcentaje
 	
-	constructor(pPorcentaje, pImagen){
-		porcentaje = pPorcentaje
-		image = pImagen
-	}
-	
 	method colisionadoPor(pPersonaje){
 		personaje.disminuirPorcentaje(porcentaje)
 		self.cambiarPosicion()
@@ -24,16 +19,10 @@ class Lavandina inherits SuperObjeto{
 class Comida inherits SuperObjeto {
 
 	var property puntaje
-	
-	constructor(pPuntaje, pImagen){
-		puntaje = pPuntaje
-		image = pImagen
-	}
 
 	method colisionadoPor(personaje) {
 		personaje.aumentarPuntaje(puntaje) 
 		self.cambiarPosicion()
-		
 	}
 	
 }
