@@ -15,8 +15,8 @@ class Infectado inherits EntidadMovil {
 
 	method image() = "assets/personaje/Infectado.png"
 
-	override method colisionadoPor(personaje){
-		personaje.recibirInfeccion()
+	override method colisionadoPor(algo){
+		algo.recibirInfeccion()
 	}
 
 	method correr() {
