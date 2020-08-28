@@ -3,22 +3,18 @@ import fondo.*
 import factories.*
 import personaje.*
 
-object score {
-	var vida
-
+}
+object  score {
+	
 	method dibujarInicial() {
-		vida = new Visual(image = "assets/score/VIDA_0_relleno.png", position = game.at(1, 16))
-		game.addVisual(vida)
+		game.addVisual(self)
 	}
-
-	method actualizarScoreTotal(pTerminoElJuego) {
-		if(!pTerminoElJuego){
-			game.removeVisual(vida)
-			vida = new Visual(image = "assets/score/" + personaje.porcentajeInfeccion().toString() + ".png", position = game.at(1, 16))
-			game.addVisual(vida)
-		}
-		
+     method imagen() {
+     	if(!pTerminoElJuego){
+	
+      	return "assets/score/" + personaje.porcentajeInfeccion().toString() + ".png"
 	}
+	
+	method position() = game.at(1, 16)
 
 }
-
