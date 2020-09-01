@@ -30,46 +30,37 @@ object nivel {
 
 	method configurate() {
 		game.clear()
-		
-		//Setup Visuals
-		const npc = [];
-		4.times({i=>npc.add(new Policia())});
-		4.times({i=>npc.add(new Infectado())});
-		
-		const hamburguesa = new Comida(puntaje = 25,image = 'assets/objetos/hamburguesa.png')
+			// Setup Visuals
+		const npc = []
+		4.times({ i => npc.add(new Policia())})
+		4.times({ i => npc.add(new Infectado())})
+		const hamburguesa = new Comida(puntaje = 25, image = 'assets/objetos/hamburguesa.png')
 		const agua = new Comida(puntaje = 40, image = 'assets/objetos/agua.png')
 		const cocacola = new Comida(puntaje = 10, image = 'assets/objetos/coca.png')
 		const pizza = new Comida(puntaje = 15, image = 'assets/objetos/pizza.png')
 		const lavandina = new Lavandina(porcentaje = 25, image = 'assets/objetos/lavandina.png')
 		const pancho = new Comida(puntaje = 20, image = 'assets/objetos/pancho-pixel.png')
-		
-		const objetos = [hamburguesa, agua, cocacola, pizza, lavandina, pancho, new Permiso()];
-		2.times({i=>objetos.add(new Arbol1())})
-		2.times({i=>objetos.add(new Arbol2())})
-		2.times({i=>objetos.add(new Piedra())})
-		
-		// Visuals
+		const objetos = [ hamburguesa, agua, cocacola, pizza, lavandina, pancho, new Permiso(image="") ]
+		2.times({ i => objetos.add(new Arbol1(image = ""))})
+		2.times({ i => objetos.add(new Arbol2(image = ""))})
+		2.times({ i => objetos.add(new Piedra(image = ""))})
+			// Visuals
 		game.addVisual(personaje)
 		game.addVisual(entrenador)
 		entrenador.manejadorDialogos()
 		personaje.arrancaPersonaje()
 		npc.forEach({ policia => game.addVisual(policia)})
-		objetos.forEach({objeto => game.addVisual(objeto)})
-		
-		// Movimientos de la "IA" y eventos temporales.
+		objetos.forEach({ objeto => game.addVisual(objeto)})
+			// Movimientos de la "IA" y eventos temporales
 		npc.forEach({ policia => policia.comenzarMovimientoPeriodico()})
-		
 		movimiento.configurarFlechas(personaje)
 		new MarcoSolido(verticeInicial= new Position(x=0,y=0),verticeFinal = new Position(x=anchoRecuadro, y=altoRecuadro)).colocarArbustos()
-		score.dibujarInicial()
-		
-		// Colisiones	
-		game.onCollideDo(personaje, { elemento =>		
-			elemento.colisionadoPor(personaje)
-			score.actualizarScoreTotal(terminoElJuego)
-		})
-		// Musica
+			// Colisiones	
+		game.onCollideDo(personaje, { elemento => elemento.colisionadoPor(personaje)})
+			// Musica
 		musica.play()
+			// Score
+		game.addVisual(score)
 	}
 
 	method buscarPersonaje() {
@@ -77,20 +68,17 @@ object nivel {
 	}
 
 	method gameOver() {
-		terminoElJuego = true
 		game.clear()
 		musica.stop()
-		if (personaje.porcentajeInfeccion() >= 100){
+		if (personaje.porcentajeInfeccion() >= 100) {
 			game.addVisual(finDelJuegoInfectado)
-		}else{
+		} else {
 			game.addVisual(finDelJuegoPolicia)
 		}
 		game.addVisual(entrenador)
 		entrenador.puntajeFinal()
-		
-		keyboard.space().onPressDo{ 
-			game.stop()
-		}
+		keyboard.space().onPressDo{ game.stop()}
 	}
 
 }
+

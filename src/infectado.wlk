@@ -7,15 +7,14 @@ class Infectado inherits EntidadMovil {
 
 	var property direccion = [ arriba, abajo, izquierda, derecha ].anyOne()
 	var property velocidad = 100.randomUpTo(300).roundUp()
-	
 
-	method comenzarMovimientoPeriodico(){
+	method comenzarMovimientoPeriodico() {
 		game.onTick(self.velocidad(), "MovimientoInfectado", {=> self.correr()})
 	}
 
 	method image() = "assets/personaje/Infectado.png"
 
-	override method colisionadoPor(algo){
+	override method colisionadoPor(algo) {
 		algo.recibirInfeccion()
 	}
 

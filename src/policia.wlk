@@ -6,20 +6,20 @@ import nivel.*
 class Policia inherits EntidadMovil {
 
 	var property velocidad = 300.randomUpTo(700).roundUp()
-	
-	method comenzarMovimientoPeriodico(){
+
+	method comenzarMovimientoPeriodico() {
 		game.onTick(self.velocidad(), "MovimientoPolicia", {=> self.seguir()})
 	}
 
 	method image() = "assets/personaje/policia1.png"
-	
-	override method colisionadoPor(algo){
-		if(!algo.permiso()){
+
+	override method colisionadoPor(algo) {
+		if (!algo.permiso()) {
 			nivel.gameOver()
-		}else{
+		} else {
 			game.say(self, "Muy bien! Siga circulando.")
 		}
-	}		
+	}
 
 	method seguir() {
 		const posPersonaje = nivel.buscarPersonaje()
@@ -38,17 +38,15 @@ class Policia inherits EntidadMovil {
 		return centro
 	}
 
-
 	method moverLateralmente(difX) {
 		if (difX == 0) return centro
 		return ( if (difX > 0) derecha else izquierda )
 	}
-	
+
 	method moverVerticalmente(difY) {
 		if (difY == 0) return centro
-		return ( if (difY > 0) arriba else abajo)
+		return ( if (difY > 0) arriba else abajo )
 	}
-
 
 	method calcularDiferencia(pos1, pos2) {
 		return pos1 - pos2

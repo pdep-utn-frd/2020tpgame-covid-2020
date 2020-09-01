@@ -15,7 +15,7 @@ class EntidadMovil {
 	method noHayNadieEnDireccion(direccion) {
 		return checker.estaVacia(direccion.futuraPosicion(self.position()))
 	}
-	
+
 	method colisionadoPor(algo)
 
 }

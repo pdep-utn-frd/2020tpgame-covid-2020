@@ -3,37 +3,42 @@ import nivel.*
 import superObjeto.*
 import personaje.*
 
+class Personaje {
 
-class Personaje{
-	method tienepermiso()= true
+	method tienepermiso() = true
+
 }
 
-class Lavandina inherits SuperObjeto{
+class Lavandina inherits SuperObjeto {
+
 	var property porcentaje
-	
-	method colisionadoPor(algo){
-		personaje.disminuirPorcentaje(porcentaje)
+
+	method colisionadoPor(jugador) {
+		jugador.disminuirPorcentaje(porcentaje)
 		self.cambiarPosicion()
 	}
+
 }
+
 class Comida inherits SuperObjeto {
 
 	var property puntaje
 
-	method colisionadoPor(algo) {
-		algo.aumentarPuntaje(puntaje) 
+	method colisionadoPor(jugador) {
+		jugador.aumentarPuntaje(puntaje)
 		self.cambiarPosicion()
 	}
-	
+
 }
 
 class Permiso inherits SuperObjeto {
-	
-	override method image() = "assets/objetos/permiso.png"
-	
-	method colisionadoPor(algo) {
-		algo.agarroPermiso()
+
+	method image() = "assets/objetos/permiso.png"
+
+	method colisionadoPor(jugador) {
+		jugador.agarroPermiso()
 		self.cambiarPosicion()
 	}
 
 }
+

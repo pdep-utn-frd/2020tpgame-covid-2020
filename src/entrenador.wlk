@@ -4,25 +4,23 @@ import personaje.*
 
 object entrenador {
 
-	var property image = "assets/personaje/entrenador.png"
-	var property position = game.at(24, 12)
-	
-	method manejadorDialogos(){
-		game.onTick(7000, 'sayEntrenador', { 
-			game.say(self, 'Vas bien! Musculá!')
-		})
-		game.onTick(3000, 'sayEntrenadoraa', {
-			game.say(self, 'Corré más rápido!')
-		})
-		game.onTick(5000, 'sayPuntosEntrenador', {
-			game.say(self, 'Tenes ' + personaje.nivelPuntaje() + '!')
-		})
+	method image() = 'assets/personaje/entrenador.png'
+
+	method position() = game.at(24, 12)
+
+	method manejadorDialogos() {
+		game.onTick(2000, 'sayPuntosEntrenador', { game.say(self, 'Tenes ' + personaje.nivelPuntaje() + '!')})
+		game.onTick(3500, 'primerSayEntrenador', { game.say(self, 'Corré más rápido!')})
+		game.onTick(5300, 'segundoSayEntrenador', { game.say(self, 'Vas bien! Musculá!')})
 	}
-	
-	method puntajeFinal(){
+
+	method puntajeFinal() {
 		game.say(self, 'Puntaje:  ' + personaje.nivelPuntaje())
 	}
+
 	method colisionadoPor(algo) {
 		game.say(self, 'No me choques!')
 	}
+
 }
+

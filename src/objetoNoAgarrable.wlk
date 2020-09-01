@@ -12,20 +12,31 @@ class ObjetoNoAgarrable inherits SuperObjeto {
 
 }
 
-class Arbol1 inherits ObjetoNoAgarrable{
+class Arbol1 inherits ObjetoNoAgarrable {
+
 	override method image() = "assets/escenario/arbol1-pixel.png"
+
 }
 
-class Arbol2 inherits ObjetoNoAgarrable{
+class Arbol2 inherits ObjetoNoAgarrable {
+
 	override method image() = "assets/escenario/arbol2-pixel.png"
+
 }
 
-class Piedra inherits ObjetoNoAgarrable{
+class Piedra inherits ObjetoNoAgarrable {
+
 	override method image() = "assets/escenario/piedra1-pixel.png"
+
 }
 
-class Arbusto inherits ObjetoNoAgarrable{
+class Arbusto inherits ObjetoNoAgarrable {
+
 	override method image() = "assets/escenario/arbusto.png"
-	override method position(posicion) { position = posicion }
+
+	override method position(posicion) {
+		position = posicion
+	}
+
 }
 

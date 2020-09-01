@@ -16,7 +16,7 @@ class MarcoSolido {
 	}
 
 	method colocarElemento(columna, fila) {
-		const elemento = new Arbusto()
+		const elemento = new Arbusto(image = "")
 		elemento.position(new Position(x = columna, y = fila))
 		game.addVisual(elemento)
 	}
@@ -34,20 +34,16 @@ class MarcoSolido {
 object movimiento {
 
 	method configurarFlechas(personaje) {
-		keyboard.up().onPressDo{ 
-			self.mover(arriba, personaje)
+		keyboard.up().onPressDo{ self.mover(arriba, personaje)
 			personaje.ultimaDireccion(arriba)
 		}
-		keyboard.down().onPressDo{ 
-			self.mover(abajo, personaje)
+		keyboard.down().onPressDo{ self.mover(abajo, personaje)
 			personaje.ultimaDireccion(abajo)
 		}
-		keyboard.left().onPressDo{ 
-			self.mover(izquierda, personaje)
+		keyboard.left().onPressDo{ self.mover(izquierda, personaje)
 			personaje.ultimaDireccion(izquierda)
 		}
-		keyboard.right().onPressDo{ 
-			self.mover(derecha, personaje)
+		keyboard.right().onPressDo{ self.mover(derecha, personaje)
 			personaje.ultimaDireccion(derecha)
 		}
 	}
