@@ -48,7 +48,7 @@ Te encontrarás con policías que revisarán tu permiso, y además hay infectado
 
 ### Beneficios: 
 
-No todo es malo, en la plaza también hay comida, que te dará puntos, o desinfectante, que te ayudará a reducir tu nivel de COVID. Encontrarás los permisos necesarios para que la policía no te dentenga, pero mucho cuidado, ¡que se vencen!
+No todo es malo, en la plaza también hay comida, que te dará puntos, o desinfectante, que te ayudará a reducir tu nivel de COVID. Encontrarás los permisos necesarios para que la policía no te dentega, pero mucho cuidado, ¡que se vencen!
 
 ### Fin del juego: 
 
